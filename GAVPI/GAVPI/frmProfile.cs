@@ -383,17 +383,18 @@ namespace GAVPI
         //  user.  We'll update the state within each method that adds or removes aspects of the Profile that
         //  require persistence.
 		//
-	
-		private void ProfileEdited()
-		{
-		
-            //
-			//  Changes have been made to the Profile.  If the Profile is named, ensure File->Save menu item is
-			//  enabled.  Also ensure that File->Save As menu item is enabled.  We also need to indicate to the
-            //  user, in the Form's status bar, that the Profile is presently unsaved.
-			//
 
-            if( GAVPI.vi_profile.IsEmpty() ) {
+        private void ProfileEdited()
+        {
+
+            //
+            //  Changes have been made to the Profile.  If the Profile is named, ensure File->Save menu item is
+            //  enabled.  Also ensure that File->Save As menu item is enabled.  We also need to indicate to the
+            //  user, in the Form's status bar, that the Profile is presently unsaved.
+            //
+
+            if (GAVPI.vi_profile.IsEmpty())
+            {
 
                 btmStatusProfile.Text = null;
 
@@ -401,15 +402,15 @@ namespace GAVPI
 
             }
 
-			if( GAVPI.vi_profile.ProfileFilename != null ) this.saveToolStripMenuItem.Enabled = true;
+            if (GAVPI.vi_profile.ProfileFilename != null) this.saveToolStripMenuItem.Enabled = true;
 
             GAVPI.vi_profile.Edited();
 
-			this.saveAsToolStripMenuItem.Enabled = true;
+            this.saveAsToolStripMenuItem.Enabled = true;
 
-            btmStatusProfile.Text = "[UNSAVED] " + Path.GetFileNameWithoutExtension( GAVPI.vi_profile.ProfileFilename );
+            btmStatusProfile.Text = "[UNSAVED] " + Path.GetFileNameWithoutExtension(GAVPI.vi_profile.ProfileFilename);
 
-		}
+        }  //  private void ProfileEdited()
 
         private void ActionSequences_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
