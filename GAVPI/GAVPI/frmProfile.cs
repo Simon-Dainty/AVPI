@@ -409,7 +409,30 @@ namespace GAVPI
 
             btmStatusProfile.Text = "[UNSAVED] " + Path.GetFileNameWithoutExtension( GAVPI.vi_profile.ProfileFilename );
 
-		}  //  private void ProfileEdited()
-        
+		}
+
+        private void ActionSequences_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Right)
+            {
+                this.dgActionSequences.CurrentCell = this.dgActionSequences.Rows[e.RowIndex].Cells[e.ColumnIndex];
+            }
+        }
+
+        private void Triggers_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                this.dgTriggers.CurrentCell = this.dgTriggers.Rows[e.RowIndex].Cells[e.ColumnIndex];
+            }
+        }
+
+        private void TriggerEvents_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                this.dgTriggerEvents.CurrentCell = this.dgTriggerEvents.Rows[e.RowIndex].Cells[e.ColumnIndex];
+            }
+        }
     }
 }
